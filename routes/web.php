@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController; // Importa o controlador de livros
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,33 +14,21 @@ use App\Http\Controllers\BookController; // Importa o controlador de livros
 |
 */
 
-// Rota principal, redireciona para a lista de livros como página inicial
-Route::get('/', [BookController::class, 'index'])->name('home');
+// Rota principal - exibe a tela inicial com login e registro para visitantes
+Route::get('/', function () {
+    return view('home');
+})->name('home')->middleware('guest');
 
-// Rotas CRUD para o recurso de livros
-Route::resource('books', BookController::class);
+// Redireciona usuários autenticados diretamente para a lista de livros
+Route::get('/books', [BookController::class, 'index'])->name('books.index')->middleware('auth');
 
-/*
-|---------------------------------------------------------------------------
-| Explicação das Rotas do Resource 'books'
-|---------------------------------------------------------------------------
-|
-| O comando Route::resource('books', BookController::class) gera automaticamente
-| todas as rotas CRUD necessárias para gerenciar o recurso 'books'.
-| Abaixo estão os detalhes de cada rota gerada:
-|
-| - GET      /books              -> index   (lista todos os livros)
-| - GET      /books/create       -> create  (mostra o formulário para adicionar um novo livro)
-| - POST     /books              -> store   (salva o novo livro no banco de dados)
-| - GET      /books/{id}         -> show    (exibe os detalhes de um livro específico)
-| - GET      /books/{id}/edit    -> edit    (mostra o formulário para editar um livro existente)
-| - PUT/PATCH /books/{id}        -> update  (atualiza os dados do livro no banco de dados)
-| - DELETE   /books/{id}         -> destroy (deleta o livro do banco de dados)
-|
-| Essas rotas correspondem aos métodos do controlador BookController, que
-| gerencia as operações CRUD para o recurso 'books'.
-|
-*/
+// Rotas CRUD para o recurso de livros, protegidas pelo middleware 'auth'
+Route::resource('books', BookController::class)->middleware('auth');
 
+// Rota provisoria
+Route::get('/profile', function () {
+    return redirect('/books');
+})->name('profile.edit');
 
-
+// Rotas de autenticação geradas pelo Breeze (login, registro, etc.)
+require __DIR__.'/auth.php';

@@ -1,21 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.public') <!-- Alterar para o layout public -->
 
 @section('content')
-<div class="container">
     <h1>Detalhes do Livro</h1>
 
-    <p><strong>ID:</strong> {{ $book->id }}</p>
-    <p><strong>Título:</strong> {{ $book->title }}</p>
-    <p><strong>Autor:</strong> {{ $book->author }}</p>
-    <p><strong>Descrição:</strong> {{ $book->description }}</p>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h4 class="card-title"><strong>Título:</strong> {{ $book->title }}</h4>
+            <p class="card-text"><strong>Autor:</strong> {{ $book->author }}</p>
+            <p class="card-text"><strong>Descrição:</strong> {{ $book->description }}</p>
+        </div>
+    </div>
 
-    <a href="{{ route('books.index') }}">Voltar para a lista</a>
-    <a href="{{ route('books.edit', $book->id) }}">Editar Livro</a>
-
-    <form action="{{ route('books.destroy', $book->id) }}" method="POST" style="display:inline;">
-        @csrf
-        @method('DELETE')
-        <button type="submit">Deletar</button>
-    </form>
-</div>
+    <a href="{{ route('books.index') }}" class="btn btn-secondary mt-3">Voltar para a Lista de Livros</a>
+    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning mt-3">Editar Livro</a>
 @endsection

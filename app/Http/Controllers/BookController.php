@@ -10,11 +10,17 @@ class BookController extends Controller
     // Exibe a listagem de livros com paginação e busca
     public function index(Request $request)
     {
-        $search = $request->input('search');
-        $books = Book::where('title', 'like', "%{$search}%")->paginate(10);
+    $query = $request->input('search'); // Recebe a entrada do campo de busca
 
-        return view('books.index', compact('books', 'search'));
+    // Se houver uma entrada de busca, filtra os livros
+    $books = Book::when($query, function ($queryBuilder) use ($query) {
+        return $queryBuilder->where('title', 'like', "%{$query}%")
+                            ->orWhere('author', 'like', "%{$query}%");
+    })->paginate(10);
+
+    return view('books.index', compact('books'));
     }
+
 
     // Exibe o formulário para criar um novo livro
     public function create()
