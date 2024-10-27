@@ -1,4 +1,3 @@
-<!-- resources/views/auth/register.blade.php -->
 @extends('layouts.public')
 
 @section('content')
@@ -23,4 +22,9 @@
         </div>
         <button type="submit" class="btn btn-success mt-3">Registrar</button>
     </form>
+
+    <!-- Botão para redirecionar para a tela de login -->
+    <div class="mt-3">
+        <p>Já tem uma conta? <a href="{{ route('login') }}" class="btn btn-link">Fazer login</a></p>
+    </div>
 @endsection
