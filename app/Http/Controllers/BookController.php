@@ -22,7 +22,7 @@ class BookController extends Controller
     }
 
 
-    // Exibe o formulário para criar um novo livro
+    // Exibe o formulário para adicionar um novo livro
     public function create()
     {
         return view('books.create');

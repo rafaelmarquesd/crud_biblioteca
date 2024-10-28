@@ -1,4 +1,4 @@
-@extends('layouts.public') <!-- ou layouts.app, conforme o layout configurado -->
+@extends('layouts.public') <!-- Utiliza o alyout padrao -->
 
 @section('content')
 
@@ -9,7 +9,6 @@
         <input type="text" name="search" class="form-control w-50 mr-2" placeholder="Digite o título ou autor do livro" value="{{ request('search') }}" required>
         <button type="submit" class="btn btn-primary mr-2">Buscar</button>
         
-        <!-- Botão para Voltar à Lista Completa -->
         @if(request('search'))
             <a href="{{ route('books.index') }}" class="btn btn-secondary">Voltar para a Lista Completa</a>
         @endif

@@ -1,7 +1,7 @@
 
-<!-- resources/views/home.blade.php -->
-@extends('layouts.public')
+@extends('layouts.public') <!-- Utiliza o layout padrao -->
 
+<!-- Conteudo principal -->
 @section('content')
     <h1>Bem-vindo à Biblioteca</h1>
     <p>Para acessar a biblioteca, faça login ou registre-se.</p>

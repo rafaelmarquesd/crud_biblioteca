@@ -1,4 +1,4 @@
-@extends('layouts.public') <!-- Alterar para o layout public -->
+@extends('layouts.public') <!-- Utiliza o layout padrao public -->
 
 @section('content')
     <h1>Editar Livro</h1>
