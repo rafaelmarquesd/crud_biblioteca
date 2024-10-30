@@ -1,10 +1,10 @@
-## 📋 Pré-requisitos
+## Pré-requisitos
 
 - PHP >= 7.4
 - Composer
 - Node.js
 
-## 🚀 Como iniciar o projeto
+## Como iniciar o projeto
 
 ### 1. Clonar o repositório
 
@@ -72,8 +72,8 @@ Acesse no navegador:
 http://localhost:8000
 ```
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- Cadastro de livros 📚
-- Consulta de livros disponíveis 🔍
-- Edição e exclusão de registros ✏️
+- Cadastro de livros 
+- Consulta de livros disponíveis 
+- Edição e exclusão de registros 
