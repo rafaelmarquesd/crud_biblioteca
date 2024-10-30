@@ -1,7 +1,3 @@
-# CRUD Biblioteca 📚
-
-CRUD Biblioteca é uma aplicação de gerenciamento de biblioteca construída com Laravel e Vue.js. Permite realizar operações básicas de cadastro, edição, exclusão e consulta de livros.
-
 ## 📋 Pré-requisitos
 
 - PHP >= 7.4
@@ -41,6 +37,7 @@ php artisan key:generate
 
 ### 4. Configurar banco de dados
 
+- Atualize as informações de conexão no arquivo .env:
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -71,10 +68,12 @@ php artisan serve
 
 Acesse no navegador:
 
+```bash
 http://localhost:8000
+```
 
-✨ Funcionalidades
+## ✨ Funcionalidades
 
-Cadastro de livros 📚
-Consulta de livros disponíveis 🔍
-Edição e exclusão de registros ✏️
+- Cadastro de livros 📚
+- Consulta de livros disponíveis 🔍
+- Edição e exclusão de registros ✏️
